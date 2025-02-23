@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="GameFramework">
+      <UniqueIdentifier>{18a36c25-e1af-4ae3-907d-ab9e6e5a1ff2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlayGround">
+      <UniqueIdentifier>{19d3d82a-71a1-4ec2-8b33-8e505247c1d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameFramework\D2DRenderer">
+      <UniqueIdentifier>{f6cee654-69a2-4cde-b4ab-cfaf6461e27d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameFramework\Animation">
+      <UniqueIdentifier>{1c573f1c-ef7b-4f89-806d-4493257f5e32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameFramework\Event">
+      <UniqueIdentifier>{02cb8458-c69c-4573-8bdf-2840a2b23079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameFramework\Image">
+      <UniqueIdentifier>{88c40b98-eefd-4397-9155-6df3d3bd541c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameFramework\Manager">
+      <UniqueIdentifier>{197e0b22-2a0a-451c-824c-cfd4ace1f0ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameFramework\SingletonBase">
+      <UniqueIdentifier>{f912c75c-86b2-4466-a9a6-91bb27f0998d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameFramework\Timer">
+      <UniqueIdentifier>{f5926769-2b02-4f5b-a4e7-1630265315cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameFramework\TextData">
+      <UniqueIdentifier>{5701bf67-6b51-4e6e-b868-1eea0f8f7b25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameFramework\Utils">
+      <UniqueIdentifier>{b83c1e75-5dd2-49e3-8bc0-c78d794b97e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameFramework\String">
+      <UniqueIdentifier>{77414653-9eab-4d7c-9502-21e06faf602a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameFramework\GameObject">
+      <UniqueIdentifier>{3cc2bbe7-4155-4d20-92bf-c928616e8830}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameFramework\D2DRenderer.h">
+      <Filter>GameFramework\D2DRenderer</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\Animation.h">
+      <Filter>GameFramework\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\Vector2.h">
+      <Filter>GameFramework\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\Utils.h">
+      <Filter>GameFramework\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\FloatRect.h">
+      <Filter>GameFramework\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\IEvent.h">
+      <Filter>GameFramework\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\GameObject.h">
+      <Filter>GameFramework\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\GameNode.h">
+      <Filter>GameFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\EventManager.h">
+      <Filter>GameFramework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\ImageManager.h">
+      <Filter>GameFramework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\Image.h">
+      <Filter>GameFramework\Image</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\KeyManager.h">
+      <Filter>GameFramework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\ObjectManager.h">
+      <Filter>GameFramework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\SoundManager.h">
+      <Filter>GameFramework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\SceneManager.h">
+      <Filter>GameFramework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\SingletonBase.h">
+      <Filter>GameFramework\SingletonBase</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\TimeManager.h">
+      <Filter>GameFramework\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\TextData.h">
+      <Filter>GameFramework\TextData</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\Timer.h">
+      <Filter>GameFramework\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\StringHelper.h">
+      <Filter>GameFramework\String</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\Resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\LibraryHeader.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameFramework\RandomFunction.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayGround\Player.h">
+      <Filter>PlayGround</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayGround\PlayGround.h">
+      <Filter>PlayGround</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayGround\Bullet.h">
+      <Filter>PlayGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>PlayGround</Filter>
+    </ClInclude>
+    <ClInclude Include="TestScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayGround\Doodle.h">
+      <Filter>PlayGround</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayGround\Platform.h">
+      <Filter>PlayGround</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GameFramework\D2DRenderer+Draw.cpp">
+      <Filter>GameFramework\D2DRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\D2DRenderer.cpp">
+      <Filter>GameFramework\D2DRenderer</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\Animation.cpp">
+      <Filter>GameFramework\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\Utils.cpp">
+      <Filter>GameFramework\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\Vector2.cpp">
+      <Filter>GameFramework\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\FloatRect.cpp">
+      <Filter>GameFramework\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\IEvent.cpp">
+      <Filter>GameFramework\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\GameObject.cpp">
+      <Filter>GameFramework\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\GameNode.cpp">
+      <Filter>GameFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\EventManager.cpp">
+      <Filter>GameFramework\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\ImageManager.cpp">
+      <Filter>GameFramework\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\Image.cpp">
+      <Filter>GameFramework\Image</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\KeyManager.cpp">
+      <Filter>GameFramework\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\ObjectManager.cpp">
+      <Filter>GameFramework\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\SoundManager.cpp">
+      <Filter>GameFramework\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\SceneManager.cpp">
+      <Filter>GameFramework\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\TimeManager.cpp">
+      <Filter>GameFramework\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\TextData.cpp">
+      <Filter>GameFramework\TextData</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\Timer.cpp">
+      <Filter>GameFramework\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="GameFramework\StringHelper.cpp">
+      <Filter>GameFramework\String</Filter>
+    </ClCompile>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayGround\Player.cpp">
+      <Filter>PlayGround</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayGround\PlayGround.cpp">
+      <Filter>PlayGround</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayGround\Bullet.cpp">
+      <Filter>PlayGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>PlayGround</Filter>
+    </ClCompile>
+    <ClCompile Include="TestScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayGround\Doodle.cpp">
+      <Filter>PlayGround</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayGround\Platform.cpp">
+      <Filter>PlayGround</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

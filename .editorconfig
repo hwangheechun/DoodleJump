@@ -1,0 +1,5 @@
+root = true
+
+[*.{cpp,h,c}]
+indent_style = tab    # 탭 사용
+indent_size = 4       # 탭 크기 설정
