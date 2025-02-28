@@ -64,22 +64,22 @@ void Camera::UpdateRect()
 
 void Camera::CheckRect()
 {
-	//Vector2 newPos = _position;
+	Vector2 newPos = _position;
 
-	//if (_rc.left < 0.f)
-	//	newPos.x -= _rc.left;
-	//if (_rc.right > _mapSize.x)
-	//	newPos.x -= _rc.right - _mapSize.x;
+	if (_rc.left < 0.f)
+		newPos.x -= _rc.left;
+	if (_rc.right > _mapSize.x)
+		newPos.x -= _rc.right - _mapSize.x;
 
-	//if (_rc.top < 0.f)
-	//	newPos.y -= _rc.top;
-	//if (_rc.bottom > _mapSize.y)
-	//	newPos.y -= _rc.bottom - _mapSize.y;
+	/*if (_rc.top < 0.f)
+		newPos.y -= _rc.top;*/
+	if (_rc.bottom > _mapSize.y)
+		newPos.y -= _rc.bottom - _mapSize.y;
 
-	//if (newPos != _position) {
-	//	_position = newPos;
-	//	UpdateRect();
-	//}
+	if (newPos != _position) {
+		_position = newPos;
+		UpdateRect();
+	}
 }
 
 Vector2 Camera::Lerp(Vector2 start, Vector2 end, float t)

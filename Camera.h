@@ -41,7 +41,9 @@ public:
 	void SetMapSize(Vector2 size) { _mapSize = size; }
 
 	Vector2 GetRelativeVector2(Vector2 vector);
-	Vector2 Getrc() { return Vector2(_rc.left, _rc.top); }
+	Vector2 GetrcTop() { return Vector2(_rc.left, _rc.top); }
+	Vector2 GetrcBottom() { return Vector2(_rc.right, _rc.bottom); }
+
 private:
 	void UpdateRect();
 	void CheckRect();

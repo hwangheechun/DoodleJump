@@ -114,13 +114,15 @@ void Player::Update()
 
 void Player::Render()
 {
+	_rect = RectMakePivot(CAMERA->GetRelativeVector2(_position), _size, Pivot::Center);	// 히트박스
 	//_playerImage->AniRender(_position, _playerAnimation, 2.0f);
-	
-	//_D2DRenderer->DrawRectangle(_rect, D2DRenderer::DefaultBrush::Black, 2.0f);		// 라인
+	_D2DRenderer->DrawRectangle(_rect, D2DRenderer::DefaultBrush::Black, 2.0f);		// 라인
+
 	_playerImage->Render(CAMERA->GetRelativeVector2(_position));
-	_D2DRenderer->RenderText(100, 730, L"카메라 대비 캐릭터 위치x : " + to_wstring(CAMERA->GetRelativeVector2(_position).x) + to_wstring(CAMERA->GetRelativeVector2(_position).y), 15);
-	_D2DRenderer->RenderText(100, 830, L"카메라 좌측 : " + to_wstring(CAMERA->Getrc().x) + L"스크린 중심 : " + to_wstring(CAMERA->Getrc().y), 15);
-	_D2DRenderer->RenderText(100, 930, L"캐릭터 위치 x " + to_wstring(_position.x) + L"캐릭터 위치 Y " + to_wstring(_position.y), 15);
+	_D2DRenderer->RenderText(20, 930, L"카메라 위치 왼쪽 : " + to_wstring(CAMERA->GetrcTop().x) + L"카메라 위치 위쪽 : " + to_wstring(CAMERA->GetrcTop().y), 15);
+	_D2DRenderer->RenderText(20, 950, L"카메라 위치 오른쪽 : " + to_wstring(CAMERA->GetrcBottom().x) + L"카메라 위치 아래쪽 : " + to_wstring(CAMERA->GetrcBottom().y), 15);
+	_D2DRenderer->RenderText(20, 980, L"캐릭터 실제 위치 x " + to_wstring(_position.x) + L"캐릭터 실제위치 Y " + to_wstring(_position.y), 15);
+	_D2DRenderer->RenderText(20, 1010, L"캐릭터 보이는 위치 x " + to_wstring(CAMERA->GetRelativeVector2(_position).x) + L"캐릭터 보이는 위치 Y " + to_wstring(CAMERA->GetRelativeVector2(_position).y), 15);
 	
 }
 

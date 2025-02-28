@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "TestScene.h"
-#include "PlayGround/Bullet.h"
 #include "PlayGround/Platform.h"
 
 TestScene::~TestScene()
@@ -9,12 +8,14 @@ TestScene::~TestScene()
 
 HRESULT TestScene::Init()
 {
+	srand(unsigned int(time(NULL)));
+
 	CAMERA->ChangeTarget(OBJECTMANAGER->FindObject(ObjectType::Player, L"Player"));
-	CAMERA->SetMapSize(Vector2(10, 10));
-	//CAMERA->SetCameraMode(CameraState::TARGET);
+	//CAMERA->SetMapSize(Vector2(WINSIZEX, 1300));
+	CAMERA->SetCameraMode(CameraState::TARGET);
 
 	//ºí·Ï
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < 20; i++)
 	{
 		PlatformBlock* block = new PlatformBlock(rand() % (WINSIZEY - 100));
 		OBJECTMANAGER->AddObject(ObjectType::Block, block);

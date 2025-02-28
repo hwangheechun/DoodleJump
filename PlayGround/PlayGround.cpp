@@ -1,30 +1,21 @@
 ﻿#include "stdafx.h"
 #include "PlayGround.h"
 #include "IEvent.h"
-#include "Bullet.h"
 #include "TestScene.h"
 
 HRESULT PlayGround::Init()
 {
 	GameNode::Init(true);
 
+	//플레이어 두들
 	Player* player = new Player();
-
 	OBJECTMANAGER->AddObject(ObjectType::Player, player);
 
-	CAMERA->ChangeTarget(OBJECTMANAGER->FindObject(ObjectType::Player, L"Player"));
-	CAMERA->SetMapSize(Vector2(512, WINSIZEY));
+	/*CAMERA->ChangeTarget(OBJECTMANAGER->FindObject(ObjectType::Player, L"Player"));
+	CAMERA->SetMapSize(Vector2(512, WINSIZEY));*/
 
 	SCENEMANAGER->AddScene(L"TestScene", new TestScene());
 	SCENEMANAGER->ChangeScene(L"TestScene");
-	/*
-	SCENEMANAGER->AddScene(L"TestScene2", new TestScene2());
-	SCENEMANAGER->AddScene(L"TestScene3", new TestScene3());
-	SCENEMANAGER->AddScene(L"TestScene4", new TestScene4());
-	SCENEMANAGER->AddScene(L"TestScene5", new TestScene5());
-	*/
-
-	
 
 	//시작 땅
 	Platform* platform = new Platform();

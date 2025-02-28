@@ -132,9 +132,6 @@
     <ClInclude Include="PlayGround\PlayGround.h">
       <Filter>PlayGround</Filter>
     </ClInclude>
-    <ClInclude Include="PlayGround\Bullet.h">
-      <Filter>PlayGround</Filter>
-    </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>PlayGround</Filter>
     </ClInclude>
@@ -143,9 +140,6 @@
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayGround\Doodle.h">
-      <Filter>PlayGround</Filter>
     </ClInclude>
     <ClInclude Include="PlayGround\Platform.h">
       <Filter>PlayGround</Filter>
@@ -224,9 +218,6 @@
     <ClCompile Include="PlayGround\PlayGround.cpp">
       <Filter>PlayGround</Filter>
     </ClCompile>
-    <ClCompile Include="PlayGround\Bullet.cpp">
-      <Filter>PlayGround</Filter>
-    </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>PlayGround</Filter>
     </ClCompile>
@@ -235,9 +226,6 @@
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayGround\Doodle.cpp">
-      <Filter>PlayGround</Filter>
     </ClCompile>
     <ClCompile Include="PlayGround\Platform.cpp">
       <Filter>PlayGround</Filter>

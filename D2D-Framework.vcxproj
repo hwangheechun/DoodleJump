@@ -154,8 +154,6 @@
     <ClInclude Include="GameFramework\Timer.h" />
     <ClInclude Include="GameFramework\Utils.h" />
     <ClInclude Include="GameFramework\Vector2.h" />
-    <ClInclude Include="PlayGround\Bullet.h" />
-    <ClInclude Include="PlayGround\Doodle.h" />
     <ClInclude Include="PlayGround\Platform.h" />
     <ClInclude Include="PlayGround\Player.h" />
     <ClInclude Include="PlayGround\PlayGround.h" />
@@ -185,8 +183,6 @@
     <ClCompile Include="GameFramework\Timer.cpp" />
     <ClCompile Include="GameFramework\Utils.cpp" />
     <ClCompile Include="GameFramework\Vector2.cpp" />
-    <ClCompile Include="PlayGround\Bullet.cpp" />
-    <ClCompile Include="PlayGround\Doodle.cpp" />
     <ClCompile Include="PlayGround\Platform.cpp" />
     <ClCompile Include="PlayGround\Player.cpp" />
     <ClCompile Include="PlayGround\PlayGround.cpp" />
