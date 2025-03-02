@@ -1,2 +1,5 @@
-﻿  Player.cpp
+﻿  Platform.cpp
+C:\Users\heech\OneDrive\바탕 화면\DoodleJump\PlayGround\Platform.cpp(100,30): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PlayGround/Platform.cpp'을(를) 컴파일하는 중)
+  
   D2D-Framework.vcxproj -> C:\Users\heech\OneDrive\바탕 화면\DoodleJump\x64\Debug\D2D-Framework.exe

@@ -25,15 +25,16 @@ void Player::Init()
 	_direction = Vector2(1, 0);
 	_gaugeRect = RectMakePivot(_position + Vector2(0, 60), Vector2(40.f, 10.f), Pivot::Center);
 
-	_playerImage = IMAGEMANAGER->AddImage(L"Player Idle", L"Resources/doodle_left.png");
-	//_playerImage = IMAGEMANAGER->FindImage(L"Player Idle");
+	_playerImage = IMAGEMANAGER->AddFrameImage(L"doodle_left", L"Resources/doodle_left_bend_sprite.png", 3, 1);
+	_playerImage = IMAGEMANAGER->AddFrameImage(L"doodle_right", L"Resources/doodle_right_bend_sprite.png", 3, 1);
+	_playerImage = IMAGEMANAGER->FindImage(L"doodle_left");
 	//_playerImage = IMAGEMANAGER->AddImage(L"Player Idle", L"Resources/Idle.png");	// 일반 이미지
 
-	//_playerAnimation = new Animation();
-	//_playerAnimation->Init(_playerImage->GetWidth(), _playerImage->GetHeight(), _playerImage->GetFrameSize().x, _playerImage->GetFrameSize().y);
-	//_playerAnimation->SetPlayFrame(0, 1, false, true);
-	//_playerAnimation->SetFPS(10);	// 조정하면서 살펴보기
-	//_playerAnimation->Start();		// 이거 안 하면 시작 안 함
+	_isLeft = true;
+	_playerAnimation = new Animation();
+	_playerAnimation->Init(_playerImage->GetWidth(), _playerImage->GetHeight(), _playerImage->GetFrameSize().x, _playerImage->GetFrameSize().y);
+	_playerAnimation->SetPlayFrame(0, 3, false, false);	//(start, end, 거꾸로, 반복) 여기서는 점프 시 프레임을 순서대로 한 번 Play
+	_playerAnimation->SetFPS(30);	// 조정하면서 살펴보기
 }
 
 void Player::Release()
@@ -42,33 +43,35 @@ void Player::Release()
 
 void Player::Update()
 {
-	// 0 -> 1 -> 2 / SetFPS를 통한 속도 반영
-	//_playerAnimation->FrameUpdate(TIMEMANAGER->GetElapsedTime());
-	/*_position = CAMERA->GetRelativeVector2(_position);*/
-	_doodlePos = Vector2(_position.x, _position.y + _size.y / 2);
+	_doodlePos = Vector2(_position.x, _position.y + _size.y / 2); //편하게 사용하려고 _doodlePos 만듦
 
-	_gravity += 2.0f;
+	if(_isLeft)	//좌우 판별
+		_playerImage = IMAGEMANAGER->FindImage(L"doodle_left");
+	else
+		_playerImage = IMAGEMANAGER->FindImage(L"doodle_right");
 
+	_playerAnimation->FrameUpdate(TIMEMANAGER->GetElapsedTime());
+
+	_gravity += 2.5f;	//중력 가속
 	if (!_onGround)
-		Move(Vector2(0.0f, _gravity), 10);
+		Move(Vector2(0.0f, _gravity), 10);	//중력 적용
 
-	if (KEYMANAGER->IsStayKeyDown(VK_LEFT))
+	if (KEYMANAGER->IsStayKeyDown(VK_LEFT))		//좌
 	{
 		if (_position.x > 0)
 		{
-			Move(Vector2(-25, 0), 10);
+			Move(Vector2(-35, 0), 10);
 			_isLeft = true;
 		}
 	}
-	if (KEYMANAGER->IsStayKeyDown(VK_RIGHT))
+	if (KEYMANAGER->IsStayKeyDown(VK_RIGHT))	//우
 	{
 		if (_position.x < WINSIZEX)
 		{
-			Move(Vector2(25, 0), 10);
+			Move(Vector2(35, 0), 10);
 			_isLeft = false;
 		}
 	}
-
 	if (KEYMANAGER->IsStayKeyDown(VK_SPACE))
 	{
 
@@ -87,7 +90,7 @@ void Player::Update()
 		if (KEYMANAGER->IsOnceKeyDown(VK_SPACE))
 		{
 			_onGround = false;
-			_gravity = -70.0f;
+			_gravity = -90.0f;
 		}
 	}
 
@@ -103,27 +106,36 @@ void Player::Update()
 		{
 			if (_doodlePos.y > _block->GetPosition().y - _block->GetSize().y / 2 && _doodlePos.y < _block->GetPosition().y + _block->GetSize().y / 2)
 			{
-				if (_gravity > 0)
+				if (_gravity > 0) //떨어지며 발판에 닿았다면(밑에서 충돌하는 판정 무시)
 				{
-					_gravity = -70.0f;
+					_gravity = -90.0f;
+					_isJump = true;		//발판과 충돌하는 순간 true
 				}
+				else _isJump = false; //점프 이후에 바로 false
 			}
 		}
+		//else _isJump = false;
 	}
+
+	if (_isJump)
+	{
+		_playerAnimation->Start();		// 이거 안 하면 시작 안 함
+		//_isJump가 true인 찰나에 애니메이션 시작
+	}
+		
 }
 
 void Player::Render()
 {
 	_rect = RectMakePivot(CAMERA->GetRelativeVector2(_position), _size, Pivot::Center);	// 히트박스
-	//_playerImage->AniRender(_position, _playerAnimation, 2.0f);
-	_D2DRenderer->DrawRectangle(_rect, D2DRenderer::DefaultBrush::Black, 2.0f);		// 라인
+	_playerImage->AniRender(CAMERA->GetRelativeVector2(_position) - Vector2(0, 10), _playerAnimation, 0.4f);
+	//_D2DRenderer->DrawRectangle(_rect, D2DRenderer::DefaultBrush::Black, 2.0f);		// 라인
 
-	_playerImage->Render(CAMERA->GetRelativeVector2(_position));
+	//_playerImage->Render(CAMERA->GetRelativeVector2(_position));
 	_D2DRenderer->RenderText(20, 930, L"카메라 위치 왼쪽 : " + to_wstring(CAMERA->GetrcTop().x) + L"카메라 위치 위쪽 : " + to_wstring(CAMERA->GetrcTop().y), 15);
 	_D2DRenderer->RenderText(20, 950, L"카메라 위치 오른쪽 : " + to_wstring(CAMERA->GetrcBottom().x) + L"카메라 위치 아래쪽 : " + to_wstring(CAMERA->GetrcBottom().y), 15);
 	_D2DRenderer->RenderText(20, 980, L"캐릭터 실제 위치 x " + to_wstring(_position.x) + L"캐릭터 실제위치 Y " + to_wstring(_position.y), 15);
 	_D2DRenderer->RenderText(20, 1010, L"캐릭터 보이는 위치 x " + to_wstring(CAMERA->GetRelativeVector2(_position).x) + L"캐릭터 보이는 위치 Y " + to_wstring(CAMERA->GetRelativeVector2(_position).y), 15);
-	
 }
 
 void Player::Move(Vector2 moveDirection, float speed)

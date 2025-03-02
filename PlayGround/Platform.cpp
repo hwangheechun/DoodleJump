@@ -108,10 +108,12 @@ void PlatformBlock::Render()
 	//_D2DRenderer->DrawRectangle(_rect, D2DRenderer::DefaultBrush::Black, 2.0f);		// 라인
 	
 	//_D2DRenderer->RenderText(10, 500, L"크기 : " + to_wstring(_blockImage->GetSize().x) + L" " + to_wstring(_blockImage->GetSize().y), 30);
-	_D2DRenderer->FillRectangle(_rect, D2DRenderer::DefaultBrush::White);			// 채우기
-	_D2DRenderer->DrawRectangle(_rect, D2DRenderer::DefaultBrush::Black, 1.0f);		// 라인
+	//_D2DRenderer->FillRectangle(_rect, D2DRenderer::DefaultBrush::White);			// 채우기
+	//_D2DRenderer->DrawRectangle(_rect, D2DRenderer::DefaultBrush::Black, 1.0f);		// 라인
 	_blockImage->Render(CAMERA->GetRelativeVector2(_position));
-	_D2DRenderer->RenderText(CAMERA->GetRelativeVector2(_position).x - 30, CAMERA->GetRelativeVector2(_position).y,to_wstring((int)CAMERA->GetRelativeVector2(_position).x) + L", " + to_wstring((int)CAMERA->GetRelativeVector2(_position).y), 25);
+
+	/*_D2DRenderer->RenderText(CAMERA->GetRelativeVector2(_position).x - 30,
+		CAMERA->GetRelativeVector2(_position).y,to_wstring((int)CAMERA->GetRelativeVector2(_position).x) + L", " + to_wstring((int)CAMERA->GetRelativeVector2(_position).y), 25); */	//발판의 카메라 대비 벡터값
 }
 
 void PlatformBlock::Move(Vector2 moveDirection, float speed)

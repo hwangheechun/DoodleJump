@@ -35,5 +35,6 @@ public:
 
 	//이미지 관련
 	bool _isLeft;
+	bool _isJump;
 };
 
