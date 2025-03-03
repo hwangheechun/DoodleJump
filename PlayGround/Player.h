@@ -36,5 +36,10 @@ public:
 	//이미지 관련
 	bool _isLeft;
 	bool _isJump;
+
+	float _takenTime;
+	bool _isHighest;
+	int _countBlock;
+	bool _isDead;
 };
 

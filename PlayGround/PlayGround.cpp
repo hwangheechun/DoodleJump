@@ -45,8 +45,8 @@ void PlayGround::Render()
 	// 백버퍼 초기화
 	D2DRenderer::GetInstance()->BeginRender(D2D1::ColorF::White);
 	{
-		OBJECTMANAGER->Render();
 		SCENEMANAGER->Render();
+		OBJECTMANAGER->Render();
 	}
 	D2DRenderer::GetInstance()->EndRender();
 }

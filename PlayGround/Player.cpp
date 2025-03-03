@@ -35,6 +35,8 @@ void Player::Init()
 	_playerAnimation->Init(_playerImage->GetWidth(), _playerImage->GetHeight(), _playerImage->GetFrameSize().x, _playerImage->GetFrameSize().y);
 	_playerAnimation->SetPlayFrame(0, 3, false, false);	//(start, end, 거꾸로, 반복) 여기서는 점프 시 프레임을 순서대로 한 번 Play
 	_playerAnimation->SetFPS(30);	// 조정하면서 살펴보기
+
+	_isDead = false;
 }
 
 void Player::Release()
@@ -55,6 +57,12 @@ void Player::Update()
 	_gravity += 2.5f;	//중력 가속
 	if (!_onGround)
 		Move(Vector2(0.0f, _gravity), 10);	//중력 적용
+	else 
+	{
+		_takenTime = 0;
+		_position.y = _ground->GetPosition().y - _ground->GetSize().y / 2 - _size.y / 2;
+	}
+	//_takenTime = abs(TIMEMANAGER->GetElapsedTime() * _gravity / 2.5f);
 
 	if (KEYMANAGER->IsStayKeyDown(VK_LEFT))		//좌
 	{
@@ -83,7 +91,7 @@ void Player::Update()
 
 	_ground = OBJECTMANAGER->FindObject(ObjectType::Platform, L"Platform");
 
-	if (_position.y + _size.y / 2 + 3 > _ground->GetPosition().y - _ground->GetSize().y / 2)
+	if (_position.y + _size.y / 2 >= _ground->GetPosition().y - _ground->GetSize().y / 2)
 	{
 		_onGround = true;
 
@@ -117,6 +125,23 @@ void Player::Update()
 				}
 			}
 		}
+
+		if (_gravity == 0)
+		{
+			_isHighest = true;
+			_takenTime = 0;
+		}
+
+		if (_gravity > 0)
+		{
+			if (_isHighest)
+			{
+				_takenTime += TIMEMANAGER->GetElapsedTime() / 10;	
+			}
+		}
+
+		if (_takenTime > 1.5f)
+			_isDead = true;
 	}
 
 	if (_isJump)
@@ -124,7 +149,6 @@ void Player::Update()
 		_playerAnimation->Start();		// 이거 안 하면 시작 안 함
 		//_isJump가 true인 찰나에 애니메이션 시작
 	}
-		
 }
 
 void Player::Render()
@@ -140,6 +164,12 @@ void Player::Render()
 	_D2DRenderer->RenderText(20, 950, L"카메라 위치 오른쪽 : " + to_wstring(CAMERA->GetrcBottom().x) + L"카메라 위치 아래쪽 : " + to_wstring(CAMERA->GetrcBottom().y), 15);
 	_D2DRenderer->RenderText(20, 980, L"캐릭터 실제 위치 x " + to_wstring(_position.x) + L"캐릭터 실제위치 Y " + to_wstring(_position.y), 15);
 	_D2DRenderer->RenderText(20, 1010, L"캐릭터 보이는 위치 x " + to_wstring(CAMERA->GetRelativeVector2(_position).x) + L"캐릭터 보이는 위치 Y " + to_wstring(CAMERA->GetRelativeVector2(_position).y), 15);*/
+
+	_D2DRenderer->RenderText(20, 930, L"중력 :" + to_wstring(_gravity), 15);
+	_D2DRenderer->RenderText(20, 950, L"최고높이 :" + to_wstring(_isHighest), 15);
+	_D2DRenderer->RenderText(20, 980, L"떨어지는 시간 :" + to_wstring(_takenTime), 15);
+	//_D2DRenderer->RenderText(20, 980, L"밑에 개수 :" + to_wstring(_countBlock), 15);
+	_D2DRenderer->RenderText(20, 1000, L"죽음? :" + to_wstring(_isDead), 15);
 }
 
 void Player::Move(Vector2 moveDirection, float speed)

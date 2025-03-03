@@ -14,6 +14,8 @@ HRESULT TestScene::Init()
 	//CAMERA->SetMapSize(Vector2(WINSIZEX, 1300));
 	CAMERA->SetCameraMode(CameraState::TARGET);
 
+	_bgImage = IMAGEMANAGER->AddImage(L"bg", L"Resources/background.png");
+
 	//ºí·Ï
 	for (int i = 0; i < 20; i++)
 	{
@@ -48,7 +50,7 @@ void TestScene::Render()
 		Vector2 vImage{};
 		vImage.x = _bgImage->GetWidth() / 2.f;
 		vImage.y = _bgImage->GetHeight() / 2.f;
-		//_bgImage->Render(vImage);
-		_bgImage->Render(CAMERA->GetRelativeVector2(vImage));
+		_bgImage->Render(vImage);
+		//_bgImage->Render(CAMERA->GetRelativeVector2(vImage));
 	}
 }

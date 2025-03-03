@@ -28,7 +28,7 @@ void Platform::Release()
 
 void Platform::Update()
 {
-
+	_rect = RectMakePivot(CAMERA->GetRelativeVector2(_position), _size, Pivot::Center);	//카메라 따라 올라가므로 발판도 저 멀리 사라지기
 }
 
 void Platform::Render()
