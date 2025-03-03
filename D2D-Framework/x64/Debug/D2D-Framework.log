@@ -1,5 +1,38 @@
-﻿  Platform.cpp
-C:\Users\heech\OneDrive\바탕 화면\DoodleJump\PlayGround\Platform.cpp(100,30): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  Camera.cpp
+  Animation.cpp
+  GameNode.cpp
+  GameObject.cpp
+  IEvent.cpp
+  Image.cpp
+C:\Users\heech\OneDrive\바탕 화면\DoodleJump\GameFramework\Image.cpp(95,38): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/GameFramework/Image.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\heech\OneDrive\바탕 화면\DoodleJump\GameFramework\Image.cpp(96,39): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/GameFramework/Image.cpp'을(를) 컴파일하는 중)
+  
+  ImageManager.cpp
+  ObjectManager.cpp
+  SceneManager.cpp
+  Platform.cpp
+C:\Users\heech\OneDrive\바탕 화면\DoodleJump\PlayGround\Platform.cpp(84,133): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   (소스 파일 '/PlayGround/Platform.cpp'을(를) 컴파일하는 중)
   
+C:\Users\heech\OneDrive\바탕 화면\DoodleJump\PlayGround\Platform.cpp(84,102): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PlayGround/Platform.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\heech\OneDrive\바탕 화면\DoodleJump\PlayGround\Platform.cpp(151,30): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PlayGround/Platform.cpp'을(를) 컴파일하는 중)
+  
+  PlayGround.cpp
+  Player.cpp
+C:\Users\heech\OneDrive\바탕 화면\DoodleJump\PlayGround\Player.cpp(35,138): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PlayGround/Player.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\heech\OneDrive\바탕 화면\DoodleJump\PlayGround\Player.cpp(35,106): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/PlayGround/Player.cpp'을(를) 컴파일하는 중)
+  
+  Scene.cpp
+  TestScene.cpp
+  WinMain.cpp
+  코드를 생성하고 있습니다...
   D2D-Framework.vcxproj -> C:\Users\heech\OneDrive\바탕 화면\DoodleJump\x64\Debug\D2D-Framework.exe

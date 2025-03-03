@@ -106,15 +106,17 @@ void Player::Update()
 		{
 			if (_doodlePos.y > _block->GetPosition().y - _block->GetSize().y / 2 && _doodlePos.y < _block->GetPosition().y + _block->GetSize().y / 2)
 			{
-				if (_gravity > 0) //떨어지며 발판에 닿았다면(밑에서 충돌하는 판정 무시)
+				if (_collideBlock->_blockType >= 2)
 				{
-					_gravity = -90.0f;
-					_isJump = true;		//발판과 충돌하는 순간 true
+					if (_gravity > 0) //떨어지며 발판에 닿았다면(밑에서 충돌하는 판정 무시)
+					{
+						_gravity = -90.0f;
+						_isJump = true;		//발판과 충돌하는 순간 true
+					}
+					else _isJump = false; //점프 이후에 바로 false
 				}
-				else _isJump = false; //점프 이후에 바로 false
 			}
 		}
-		//else _isJump = false;
 	}
 
 	if (_isJump)
@@ -132,10 +134,12 @@ void Player::Render()
 	//_D2DRenderer->DrawRectangle(_rect, D2DRenderer::DefaultBrush::Black, 2.0f);		// 라인
 
 	//_playerImage->Render(CAMERA->GetRelativeVector2(_position));
-	_D2DRenderer->RenderText(20, 930, L"카메라 위치 왼쪽 : " + to_wstring(CAMERA->GetrcTop().x) + L"카메라 위치 위쪽 : " + to_wstring(CAMERA->GetrcTop().y), 15);
+
+	//카메라 값 표기
+	/*_D2DRenderer->RenderText(20, 930, L"카메라 위치 왼쪽 : " + to_wstring(CAMERA->GetrcTop().x) + L"카메라 위치 위쪽 : " + to_wstring(CAMERA->GetrcTop().y), 15);
 	_D2DRenderer->RenderText(20, 950, L"카메라 위치 오른쪽 : " + to_wstring(CAMERA->GetrcBottom().x) + L"카메라 위치 아래쪽 : " + to_wstring(CAMERA->GetrcBottom().y), 15);
 	_D2DRenderer->RenderText(20, 980, L"캐릭터 실제 위치 x " + to_wstring(_position.x) + L"캐릭터 실제위치 Y " + to_wstring(_position.y), 15);
-	_D2DRenderer->RenderText(20, 1010, L"캐릭터 보이는 위치 x " + to_wstring(CAMERA->GetRelativeVector2(_position).x) + L"캐릭터 보이는 위치 Y " + to_wstring(CAMERA->GetRelativeVector2(_position).y), 15);
+	_D2DRenderer->RenderText(20, 1010, L"캐릭터 보이는 위치 x " + to_wstring(CAMERA->GetRelativeVector2(_position).x) + L"캐릭터 보이는 위치 Y " + to_wstring(CAMERA->GetRelativeVector2(_position).y), 15);*/
 }
 
 void Player::Move(Vector2 moveDirection, float speed)
