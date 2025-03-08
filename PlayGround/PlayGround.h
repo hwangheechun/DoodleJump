@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Platform.h"
 #include "Scene.h"
+#include "UI.h"
 #include "Obstacle.h"
 
 #include "EventManager.h"

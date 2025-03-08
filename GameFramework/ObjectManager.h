@@ -3,7 +3,7 @@
 
 enum class ObjectType : int
 {
-	TileObject, Doodle, Platform, Block, Enemy, Player, Bullet, Item, UI, End
+	TileObject, Doodle, Platform, Block, Enemy, Player, Item, UI, End
 };	//enum 값이 더 큰 값(더 뒤의 순서의 값)이 위에 그려짐
 
 // 게임 오브젝트 관리 클래스
@@ -29,6 +29,7 @@ public:
 
 	void AddObject(ObjectType objectType, class GameObject* newObject);
 	void RemoveObject(ObjectType objectType, class GameObject* deleteObject);
+	void RemoveObjects(ObjectType objectType);
 
 	class GameObject* FindObject(ObjectType objectType, wstring objectName);
 	vector<class GameObject*> FindObjects(ObjectType objectType, wstring objectName);

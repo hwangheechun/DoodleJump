@@ -135,13 +135,16 @@
     <ClInclude Include="Scene.h">
       <Filter>PlayGround</Filter>
     </ClInclude>
-    <ClInclude Include="TestScene.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="PlayGround\Platform.h">
+      <Filter>PlayGround</Filter>
+    </ClInclude>
+    <ClInclude Include="MainScene.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayGround\UI.h">
       <Filter>PlayGround</Filter>
     </ClInclude>
   </ItemGroup>
@@ -221,13 +224,16 @@
     <ClCompile Include="Scene.cpp">
       <Filter>PlayGround</Filter>
     </ClCompile>
-    <ClCompile Include="TestScene.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="PlayGround\Platform.cpp">
+      <Filter>PlayGround</Filter>
+    </ClCompile>
+    <ClCompile Include="MainScene.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayGround\UI.cpp">
       <Filter>PlayGround</Filter>
     </ClCompile>
   </ItemGroup>

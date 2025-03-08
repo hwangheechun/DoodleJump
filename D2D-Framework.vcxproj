@@ -154,12 +154,13 @@
     <ClInclude Include="GameFramework\Timer.h" />
     <ClInclude Include="GameFramework\Utils.h" />
     <ClInclude Include="GameFramework\Vector2.h" />
+    <ClInclude Include="MainScene.h" />
     <ClInclude Include="PlayGround\Platform.h" />
     <ClInclude Include="PlayGround\Player.h" />
     <ClInclude Include="PlayGround\PlayGround.h" />
+    <ClInclude Include="PlayGround\UI.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="TestScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
@@ -183,14 +184,15 @@
     <ClCompile Include="GameFramework\Timer.cpp" />
     <ClCompile Include="GameFramework\Utils.cpp" />
     <ClCompile Include="GameFramework\Vector2.cpp" />
+    <ClCompile Include="MainScene.cpp" />
     <ClCompile Include="PlayGround\Platform.cpp" />
     <ClCompile Include="PlayGround\Player.cpp" />
     <ClCompile Include="PlayGround\PlayGround.cpp" />
+    <ClCompile Include="PlayGround\UI.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

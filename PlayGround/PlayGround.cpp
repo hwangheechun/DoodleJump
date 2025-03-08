@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
 #include "PlayGround.h"
 #include "IEvent.h"
-#include "TestScene.h"
+#include "MainScene.h"
 
 HRESULT PlayGround::Init()
 {
@@ -11,11 +11,11 @@ HRESULT PlayGround::Init()
 	Player* player = new Player();
 	OBJECTMANAGER->AddObject(ObjectType::Player, player);
 
-	/*CAMERA->ChangeTarget(OBJECTMANAGER->FindObject(ObjectType::Player, L"Player"));
-	CAMERA->SetMapSize(Vector2(512, WINSIZEY));*/
 
-	SCENEMANAGER->AddScene(L"TestScene", new TestScene());
-	SCENEMANAGER->ChangeScene(L"TestScene");
+	SCENEMANAGER->AddScene(L"MainScene", new MainScene());
+	//SCENEMANAGER->AddScene(L"AfterDeadScene", new AfterDeadScene());
+	SCENEMANAGER->ChangeScene(L"MainScene");
+
 
 	//시작 땅
 	Platform* platform = new Platform();

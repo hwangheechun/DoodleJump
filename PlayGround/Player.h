@@ -15,31 +15,28 @@ public:
 	void Move(Vector2 moveDirection, float speed);
 	void MoveAngle(float angle, float speed);
 
-	Vector2 _direction;
-	Vector2 GetDirection() { return _direction; };
-
-	float _gauge;
-	FloatRect _gaugeRect;
-
-	Image* _playerImage;
-	Animation* _playerAnimation;
-
+	//이미지 관련
+	Image* _playerImage = nullptr;
+	Animation* _playerAnimation = nullptr;
+	bool _isLeft;
+	
 	Vector2 _doodlePos;
-	bool isUp;
+	bool _isUp;
 
 	//중력 관련
 	float _gravity;
-	GameObject* _ground;
+	GameObject* _ground = nullptr;
 	bool _onGround;
-	GameObject* _block;
-
-	//이미지 관련
-	bool _isLeft;
+	GameObject* _block = nullptr;
 	bool _isJump;
 
+	//충돌 관련
+	bool IsCollide(GameObject* Object);
+
 	float _takenTime;
-	bool _isHighest;
-	int _countBlock;
+
+	//죽음 처리
 	bool _isDead;
+	float _deadLineY = WINSIZEY;
 };
 
