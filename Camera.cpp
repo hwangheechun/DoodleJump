@@ -57,6 +57,18 @@ Vector2 Camera::GetRelativeVector2(Vector2 vector)
 	return vector - Vector2(_rc.left, _rc.top);
 }
 
+FloatRect Camera::GetRelativeRect(FloatRect _rect)
+{
+	FloatRect relativeRect;
+
+	relativeRect.top = _rect.top - _rc.top;
+	relativeRect.left = _rect.left;
+	relativeRect.right = _rect.right;
+	relativeRect.bottom = _rect.bottom - _rc.top;
+
+	return relativeRect;
+}
+
 void Camera::UpdateRect()
 {
 	_rc = RectMakePivot(_position, Vector2{ WINSIZEX, WINSIZEY }, Pivot::Center);

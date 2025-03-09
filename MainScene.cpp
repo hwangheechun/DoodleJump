@@ -33,7 +33,7 @@ HRESULT MainScene::Init()
 void MainScene::Release()
 {
 	// OBJECTMANAGER 지워 준다
-	//OBJECTMANAGER->RemoveObjects(ObjectType::Block);
+	OBJECTMANAGER->RemoveObjects(ObjectType::Block);
 }
 
 void MainScene::Update()

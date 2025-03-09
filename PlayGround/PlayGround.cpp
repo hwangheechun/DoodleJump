@@ -13,7 +13,7 @@ HRESULT PlayGround::Init()
 
 
 	SCENEMANAGER->AddScene(L"MainScene", new MainScene());
-	//SCENEMANAGER->AddScene(L"AfterDeadScene", new AfterDeadScene());
+	SCENEMANAGER->AddScene(L"AfterDeadScene", new AfterDeadScene());
 	SCENEMANAGER->ChangeScene(L"MainScene");
 
 

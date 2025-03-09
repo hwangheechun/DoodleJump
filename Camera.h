@@ -20,15 +20,15 @@ public:
 	void Update();
 
 private:
-	CameraState _state;
+	CameraState _state = CameraState::TARGET;
 	FloatRect _rc;
 	Vector2 _position;
-	float _width;
-	float _height;
+	float _width = 0;
+	float _height = 0;
 	Vector2 _mapSize;
-	float _speed;
+	float _speed = 0;
 
-	class GameObject* _target;	// 타겟팅될 게임 오브젝트
+	class GameObject* _target = nullptr;	// 타겟팅될 게임 오브젝트
 
 public:
 	void SetCameraMode(CameraState state) { _state = state; }
@@ -41,8 +41,11 @@ public:
 	void SetMapSize(Vector2 size) { _mapSize = size; }
 
 	Vector2 GetRelativeVector2(Vector2 vector);
+	FloatRect GetRelativeRect(FloatRect _rect);
 	Vector2 GetrcTop() { return Vector2(_rc.left, _rc.top); }
 	Vector2 GetrcBottom() { return Vector2(_rc.right, _rc.bottom); }
+
+	Vector2 GetPosition() { return _position; }
 
 private:
 	void UpdateRect();

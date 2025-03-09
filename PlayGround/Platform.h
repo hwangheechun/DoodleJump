@@ -39,8 +39,6 @@ public:
 
 	//생성
 	void SetRandomCreate(Vector2 randPos, int typeValue);
-	void SetRandomY(int value);
-	void SetRandomType(int value);
 
 	//이미지 관련
 	Image* _blockImage = nullptr;
@@ -51,7 +49,7 @@ public:
 	Player* _player = nullptr;
 
 	//블록 종류 관련
-	BlockType _blockType;	//다른 계산식을 사용할 수도 있을 듯
+	BlockType _blockType;
 	bool _isRight = false;	//파란 블록은 오른쪽으로 먼저 움직임. 파란 블록의 방향을 나타냄
 	bool _isBreak = false;	//갈색 블록이 부서짐을 판단함
 	float _countTime = 0;	//갈색 블록이 부서지고 1초 동안 떨어짐을 계산

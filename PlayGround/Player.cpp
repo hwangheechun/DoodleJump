@@ -17,7 +17,7 @@ void Player::Init()
 	_name = L"Player";
 	_position = Vector2(WINSIZEX / 2, WINSIZEY - 100);
 	_size = Vector2(60, 60);
-	_rect = RectMakePivot(CAMERA->GetRelativeVector2(_position), _size, Pivot::Center);	// 히트박스
+	_rect = RectMakePivot(_position, _size, Pivot::Center);	// 히트박스
 	_active = true;
 
 	_playerImage = IMAGEMANAGER->AddFrameImage(L"doodle_left", L"Resources/doodle_left_bend_sprite.png", 3, 1);
@@ -26,6 +26,7 @@ void Player::Init()
 	//_playerImage = IMAGEMANAGER->AddImage(L"Player Idle", L"Resources/Idle.png");	// 일반 이미지
 
 	_isLeft = true;
+
 	_playerAnimation = new Animation();
 	_playerAnimation->Init(_playerImage->GetWidth(), _playerImage->GetHeight(), _playerImage->GetFrameSize().x, _playerImage->GetFrameSize().y);
 	_playerAnimation->SetPlayFrame(0, 3, false, false);	//(start, end, 거꾸로, 반복) 여기서는 점프 시 프레임을 순서대로 한 번 Play
@@ -41,8 +42,7 @@ void Player::Release()
 void Player::Update()
 {
 	_doodlePos = Vector2(_position.x, _position.y + _size.y / 2); //편하게 사용하려고 _doodlePos 만듦
-	_rect = RectMakePivot(CAMERA->GetRelativeVector2(_position), _size, Pivot::Center);
-
+	_rect = RectMakePivot(_position, _size, Pivot::Center);	// 히트박스
 	if(_isLeft)	//좌우 판별
 		_playerImage = IMAGEMANAGER->FindImage(L"doodle_left");
 	else
@@ -130,7 +130,8 @@ void Player::Update()
 
 	if (_isDead)
 	{
-		SetActive(false);
+		SCENEMANAGER->ChangeScene(L"AfterDeadScene");
+		//SetActive(false);
 		//SCENEMANAGER->ChangeScene(L"AfterDeadScene");
 	}
 		
@@ -138,19 +139,41 @@ void Player::Update()
 
 void Player::Render()
 {
-	_D2DRenderer->FillRectangle(_rect, D2DRenderer::DefaultBrush::White);			// 채우기
-	_D2DRenderer->DrawRectangle(_rect, D2DRenderer::DefaultBrush::Black, 2.0f);		// 라인
+	_D2DRenderer->FillRectangle(CAMERA->GetRelativeRect(_rect), D2DRenderer::DefaultBrush::White);			
+	_D2DRenderer->DrawRectangle(CAMERA->GetRelativeRect(_rect), D2DRenderer::DefaultBrush::Black, 2.0f);		
 
-	_rect = RectMakePivot(CAMERA->GetRelativeVector2(_position), _size, Pivot::Center);	// 히트박스
+	//_D2DRenderer->FillRectangle(_rect, D2DRenderer::DefaultBrush::White);			_rect 그대로 그리면 실제 _pos따라 위로 쭉 올라간다
+	//_D2DRenderer->DrawRectangle(_rect, D2DRenderer::DefaultBrush::Black, 2.0f);		
+
+	//_rect = RectMakePivot(CAMERA->GetRelativeVector2(_position), _size, Pivot::Center);	// 히트박스
 	_playerImage->AniRender(CAMERA->GetRelativeVector2(_position) - Vector2(0, 10), _playerAnimation, 0.4f);
+	//_playerImage->AniRender(CAMERA->GetRelativeVector2(_position) - Vector2(0, 10), _playerAnimation, 0.4f);
 
-	//_D2DRenderer->RenderText(20, 1000, L"죽는선 :" + to_wstring(_deadLineY), 15);
+	//_D2DRenderer->RenderText(400, 970, L"히트박스 :" + to_wstring(_rect.top), 15);
+	//_D2DRenderer->RenderText(20, 900, L"위치 :" + to_wstring(_position.y), 15);
+	//_D2DRenderer->RenderText(20, 800, L"카메라 대비 :" + to_wstring(CAMERA->GetRelativeVector2(_position).y), 15);
+	////카메라 값 표기
+	/*_D2DRenderer->RenderText(20, 50, L"카메라 위치 왼쪽 : " + to_wstring(CAMERA->GetrcTop().x) + L"카메라 위치 위쪽 : " + to_wstring(CAMERA->GetrcTop().y), 15);
+	_D2DRenderer->RenderText(20, 80, L"카메라 위치 오른쪽 : " + to_wstring(CAMERA->GetrcBottom().x) + L"카메라 위치 아래쪽 : " + to_wstring(CAMERA->GetrcBottom().y), 15);
+	_D2DRenderer->RenderText(20, 780, L"캐릭터 실제 위치 x " + to_wstring(_position.x) + L"캐릭터 실제위치 Y " + to_wstring(_position.y), 15);
+	_D2DRenderer->RenderText(20, 810, L"캐릭터 보이는 위치 x " + to_wstring(CAMERA->GetRelativeVector2(_position).x) + L"캐릭터 보이는 위치 Y " + to_wstring(CAMERA->GetRelativeVector2(_position).y), 15);*/
+	/*_D2DRenderer->RenderText(20, 780, L"캐릭터 실제 위치 x " + to_wstring(_position.x) + L"캐릭터 실제위치 Y " + to_wstring(_position.y), 15);
+	_D2DRenderer->RenderText(20, 810, L"캐릭터 보이는 위치 x " + to_wstring(CAMERA->GetRelativeVector2(_position).x) + L"캐릭터 보이는 위치 Y " + to_wstring(CAMERA->GetRelativeVector2(_position).y), 15);*/
+	/*_D2DRenderer->RenderText(30, 900, L"위 :" + to_wstring(_rect.top), 15);
+	_D2DRenderer->RenderText(0, 950, L"왼쪽 :" + to_wstring(_rect.left), 15);
+	_D2DRenderer->RenderText(150, 950, L"오른쪽 :" + to_wstring(_rect.right), 15);
+	_D2DRenderer->RenderText(30, 1000, L"아래 :" + to_wstring(_rect.bottom), 15);
+
+	_D2DRenderer->RenderText(330, 900, L"위 :" + to_wstring(CAMERA->GetRelativeRect(_rect).top), 15);
+	_D2DRenderer->RenderText(300, 950, L"왼쪽 :" + to_wstring(CAMERA->GetRelativeRect(_rect).left), 15);
+	_D2DRenderer->RenderText(400, 950, L"오른쪽 :" + to_wstring(CAMERA->GetRelativeRect(_rect).right), 15);
+	_D2DRenderer->RenderText(330, 1000, L"아래 :" + to_wstring(CAMERA->GetRelativeRect(_rect).bottom), 15);*/
 }
 
 void Player::Move(Vector2 moveDirection, float speed)
 {
 	_position += moveDirection * speed * TIMEMANAGER->GetElapsedTime();	// == deltaTime
-	_rect = RectMakePivot(CAMERA->GetRelativeVector2(_position), _size, Pivot::Center);
+	_rect = RectMakePivot(_position, _size, Pivot::Center);
 }
 
 void Player::MoveAngle(float angle, float speed)

@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObject.h"
+#include "Player.h"
 
 class UI : public GameObject
 {
@@ -12,11 +13,11 @@ public:
 	void Update() override;
 	void Render() override;
 
-	//생성
-	void SetRandomCreate(Vector2 randPos, int typeValue);
-	void SetRandomY(int value);
-	void SetRandomType(int value);
-
 	//이미지 관련
 	Image* _UIImage = nullptr;
+	Player* _player = nullptr;
+
+	//점수
+	int _score = 0;
+	int _highScore = 0;
 };
