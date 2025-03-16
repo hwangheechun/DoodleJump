@@ -1,0 +1,51 @@
+-- rect 그리기 --
+_D2DRenderer->FillRectangle(CAMERA->GetRelativeRect(_rect), D2DRenderer::DefaultBrush::White);			
+_D2DRenderer->DrawRectangle(CAMERA->GetRelativeRect(_rect), D2DRenderer::DefaultBrush::Black, 2.0f);
+
+
+
+//MainScene
+-- 블록의 인덱스 표기 -- //순서가 맞는지 알아보고 간격 조율을 체크하는 데 사용
+for (int i = 0; i < 20; i++)
+	{
+		_D2DRenderer->RenderText(CAMERA->GetRelativeVector2(dynamic_cast<PlatformBlock*>(_block[i])->GetPosition()).x, CAMERA->GetRelativeVector2(dynamic_cast<PlatformBlock*>(_block[i])->GetPosition()).y, to_wstring(i), 50);
+	}
+
+//UI
+-- 위치와 카메라 위치 --
+_D2DRenderer->RenderText(20, 880, L"UI 실제 위치 x " + to_wstring(_position.x) + L"UI 실제위치 Y " + to_wstring(_position.y), 15);
+_D2DRenderer->RenderText(20, 910, L"UI 보이는 위치 x " + to_wstring(CAMERA->GetRelativeVector2(_position).x) + L"UI 보이는 위치 Y " + to_wstring(CAMERA->GetRelativeVector2(_position).y), 15);		
+
+-- rect 값 --
+_D2DRenderer->RenderText(256, 400, L"UI 위치" + to_wstring((int)_position.x) + to_wstring((int)_position.y), 15);
+_D2DRenderer->RenderText(30, 400, L"위 :" + to_wstring(_rect.top), 15);
+_D2DRenderer->RenderText(0, 450, L"왼쪽 :" + to_wstring(_rect.left), 15);
+_D2DRenderer->RenderText(150, 450, L"오른쪽 :" + to_wstring(_rect.right), 15);
+_D2DRenderer->RenderText(30, 500, L"아래 :" + to_wstring(_rect.bottom), 15);
+
+-- 카메라가 캐릭터를 따라 위로 올라가 상대적으로 내려간 위치에 rect가 그려짐 --
+_D2DRenderer->FillRectangle(CAMERA->GetRelativeRect(_rect), D2DRenderer::DefaultBrush::White);			
+_D2DRenderer->DrawRectangle(CAMERA->GetRelativeRect(_rect), D2DRenderer::DefaultBrush::Black, 2.0f);
+
+
+
+//플레이어
+-- rect 값 --
+_D2DRenderer->RenderText(330, 900, L"위 :" + to_wstring(CAMERA->GetRelativeRect(_rect).top), 15);
+_D2DRenderer->RenderText(300, 950, L"왼쪽 :" + to_wstring(CAMERA->GetRelativeRect(_rect).left), 15);
+_D2DRenderer->RenderText(400, 950, L"오른쪽 :" + to_wstring(CAMERA->GetRelativeRect(_rect).right), 15);
+_D2DRenderer->RenderText(330, 1000, L"아래 :" + to_wstring(CAMERA->GetRelativeRect(_rect).bottom), 15);
+
+-- 위치와 카메라 위치 --
+_D2DRenderer->RenderText(20, 50, L"카메라 위치 왼쪽 : " + to_wstring(CAMERA->GetrcTop().x) + L"카메라 위치 위쪽 : " + to_wstring(CAMERA->GetrcTop().y), 15);
+_D2DRenderer->RenderText(20, 80, L"카메라 위치 오른쪽 : " + to_wstring(CAMERA->GetrcBottom().x) + L"카메라 위치 아래쪽 : " + to_wstring(CAMERA->GetrcBottom().y), 15);
+_D2DRenderer->RenderText(20, 780, L"캐릭터 실제 위치 x " + to_wstring(_position.x) + L"캐릭터 실제위치 Y " + to_wstring(_position.y), 15);
+_D2DRenderer->RenderText(20, 810, L"캐릭터 보이는 위치 x " + to_wstring(CAMERA->GetRelativeVector2(_position).x) + L"캐릭터 보이는 위치 Y " + to_wstring(CAMERA->GetRelativeVector2(_position).y), 15);
+
+
+
+//플랫폼
+-- 위치와 카메라 위치 --
+_D2DRenderer->RenderText(CAMERA->GetRelativeVector2(_position).x, CAMERA->GetRelativeVector2(_position).y, to_wstring(_beforeBlock->GetPosition().y), 15);
+_D2DRenderer->RenderText(_position.x, _position.y, to_wstring(_position.y), 15);
+

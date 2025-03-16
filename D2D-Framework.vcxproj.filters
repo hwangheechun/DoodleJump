@@ -147,6 +147,18 @@
     <ClInclude Include="PlayGround\UI.h">
       <Filter>PlayGround</Filter>
     </ClInclude>
+    <ClInclude Include="PlayGround\UISave.h">
+      <Filter>PlayGround</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayGround\Button.h">
+      <Filter>PlayGround</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayGround\UIController.h">
+      <Filter>PlayGround</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayGround\Item.h">
+      <Filter>PlayGround</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameFramework\D2DRenderer+Draw.cpp">
@@ -236,5 +248,22 @@
     <ClCompile Include="PlayGround\UI.cpp">
       <Filter>PlayGround</Filter>
     </ClCompile>
+    <ClCompile Include="PlayGround\UISave.cpp">
+      <Filter>PlayGround</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayGround\Button.cpp">
+      <Filter>PlayGround</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayGround\UIController.cpp">
+      <Filter>PlayGround</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayGround\Item.cpp">
+      <Filter>PlayGround</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Comment.txt">
+      <Filter>PlayGround</Filter>
+    </Text>
   </ItemGroup>
 </Project>

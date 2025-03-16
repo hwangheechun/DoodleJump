@@ -37,6 +37,8 @@ public:
 
 	//죽음 처리
 	bool _isDead;
-	float _deadLineY = WINSIZEY;
+	float _deadLineY = 0.f;
+
+	bool _isPause = false;
 };
 

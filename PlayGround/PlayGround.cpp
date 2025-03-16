@@ -14,12 +14,15 @@ HRESULT PlayGround::Init()
 
 	SCENEMANAGER->AddScene(L"MainScene", new MainScene());
 	SCENEMANAGER->AddScene(L"AfterDeadScene", new AfterDeadScene());
+	SCENEMANAGER->AddScene(L"PauseScene", new PauseScene());
 	SCENEMANAGER->ChangeScene(L"MainScene");
 
 
 	//시작 땅
 	Platform* platform = new Platform();
 	OBJECTMANAGER->AddObject(ObjectType::Platform, platform);
+
+	//_ui = new UIController;	//3 16 추가
 
 	return S_OK;
 }

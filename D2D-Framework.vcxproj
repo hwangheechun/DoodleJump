@@ -155,10 +155,14 @@
     <ClInclude Include="GameFramework\Utils.h" />
     <ClInclude Include="GameFramework\Vector2.h" />
     <ClInclude Include="MainScene.h" />
+    <ClInclude Include="PlayGround\Button.h" />
+    <ClInclude Include="PlayGround\Item.h" />
     <ClInclude Include="PlayGround\Platform.h" />
     <ClInclude Include="PlayGround\Player.h" />
     <ClInclude Include="PlayGround\PlayGround.h" />
     <ClInclude Include="PlayGround\UI.h" />
+    <ClInclude Include="PlayGround\UIController.h" />
+    <ClInclude Include="PlayGround\UISave.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
@@ -185,15 +189,22 @@
     <ClCompile Include="GameFramework\Utils.cpp" />
     <ClCompile Include="GameFramework\Vector2.cpp" />
     <ClCompile Include="MainScene.cpp" />
+    <ClCompile Include="PlayGround\Button.cpp" />
+    <ClCompile Include="PlayGround\Item.cpp" />
     <ClCompile Include="PlayGround\Platform.cpp" />
     <ClCompile Include="PlayGround\Player.cpp" />
     <ClCompile Include="PlayGround\PlayGround.cpp" />
     <ClCompile Include="PlayGround\UI.cpp" />
+    <ClCompile Include="PlayGround\UIController.cpp" />
+    <ClCompile Include="PlayGround\UISave.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="WinMain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Comment.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

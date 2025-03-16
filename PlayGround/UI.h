@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include "Player.h"
+#include "Button.h"
 
 class UI : public GameObject
 {
@@ -15,9 +16,12 @@ public:
 
 	//이미지 관련
 	Image* _UIImage = nullptr;
-	Player* _player = nullptr;
 
 	//점수
+	Player* _player = nullptr;
 	int _score = 0;
 	int _highScore = 0;
+
+	//버튼
+	Button* _pauseButton = nullptr;
 };

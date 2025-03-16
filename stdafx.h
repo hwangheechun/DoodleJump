@@ -14,6 +14,7 @@
 
 #include <vector>
 #include <map>
+#include <functional>	//Button 하면서 추가
 
 enum class Pivot : int
 {

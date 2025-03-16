@@ -7,6 +7,7 @@
 #include "Obstacle.h"
 
 #include "EventManager.h"
+#include "UIController.h"	//3 16 추가
 
 class PlayGround : public GameNode
 {	
@@ -18,5 +19,8 @@ public:
 	virtual void Release();
 	virtual void Update();
 	virtual void Render();
+
+private:
+	UIController* _ui = nullptr;	//3 16 추가
 };
 
