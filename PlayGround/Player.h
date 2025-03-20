@@ -15,13 +15,14 @@ public:
 	void Move(Vector2 moveDirection, float speed);
 	void MoveAngle(float angle, float speed);
 
+	Vector2 _doodlePos;
+	bool _isUp;
+	//float _angle;
+
 	//이미지 관련
 	Image* _playerImage = nullptr;
 	Animation* _playerAnimation = nullptr;
 	bool _isLeft;
-	
-	Vector2 _doodlePos;
-	bool _isUp;
 
 	//중력 관련
 	float _gravity;

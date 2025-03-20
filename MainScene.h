@@ -15,6 +15,8 @@ public:
 
 	UI* ui;
 	vector<GameObject*> _block;
+	Trampoline* _trampoline;
+	Hole* _hole;
 private:
 	Image* _bgImage;
 };

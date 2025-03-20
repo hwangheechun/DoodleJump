@@ -124,6 +124,15 @@ void Player::Update()
 	if (_gravity == 0)
 		_deadLineY = CAMERA->GetrcBottom().y;
 
+	if (IsCollide(OBJECTMANAGER->FindObject(ObjectType::Item, L"Trampoline")))
+	{
+		_gravity = -120.0f;
+		_isJump = true;
+	}
+
+
+
+
 	if (_position.y > _deadLineY)
 	{
 		_isDead = true;
@@ -149,7 +158,7 @@ void Player::Move(Vector2 moveDirection, float speed)
 
 void Player::MoveAngle(float angle, float speed)
 {
-
+	//_angle += angle * TIMEMANAGER->GetElapsedTime();
 }
 
 bool Player::IsCollide(GameObject* object)	//충돌했다면

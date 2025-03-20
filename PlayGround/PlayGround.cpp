@@ -11,7 +11,6 @@ HRESULT PlayGround::Init()
 	Player* player = new Player();
 	OBJECTMANAGER->AddObject(ObjectType::Player, player);
 
-
 	SCENEMANAGER->AddScene(L"MainScene", new MainScene());
 	SCENEMANAGER->AddScene(L"AfterDeadScene", new AfterDeadScene());
 	SCENEMANAGER->AddScene(L"PauseScene", new PauseScene());
@@ -21,8 +20,6 @@ HRESULT PlayGround::Init()
 	//시작 땅
 	Platform* platform = new Platform();
 	OBJECTMANAGER->AddObject(ObjectType::Platform, platform);
-
-	//_ui = new UIController;	//3 16 추가
 
 	return S_OK;
 }
