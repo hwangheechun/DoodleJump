@@ -43,7 +43,7 @@ void UI::Update()
 	else if (_score > _highScore)
 		_highScore = _score;
 
-	RECT rc = _rect.GetRect();
+	RECT rc = _pauseButton->GetRect().GetRect();
 	if (PtInRect(&rc, _ptMouse))	// 위치만 보는 것, 마우스가 RECT 안에 있다면
 	{
 		if (KEYMANAGER->IsOnceKeyDown(VK_LBUTTON))
@@ -74,6 +74,7 @@ void UI::Update()
 		}
 	}
 
+	if (_player && _player->_isDead) this->SetActive(false);
 }
 
 void UI::Render()

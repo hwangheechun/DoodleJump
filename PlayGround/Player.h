@@ -12,7 +12,7 @@ public:
 	void Update() override;
 	void Render() override;
 
-	void Move(Vector2 moveDirection, float speed);
+	void Move(Vector2 moveDirection);
 	void MoveAngle(float angle, float speed);
 
 	Vector2 _doodlePos;
@@ -34,12 +34,11 @@ public:
 	//충돌 관련
 	bool IsCollide(GameObject* Object);
 
-	float _takenTime;
-
 	//죽음 처리
 	bool _isDead;
 	float _deadLineY = 0.f;
 
+	//일시 정지
 	bool _isPause = false;
 };
 

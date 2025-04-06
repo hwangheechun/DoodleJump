@@ -49,3 +49,6 @@ _D2DRenderer->RenderText(20, 810, L"캐릭터 보이는 위치 x " + to_wstring(CAMERA->
 _D2DRenderer->RenderText(CAMERA->GetRelativeVector2(_position).x, CAMERA->GetRelativeVector2(_position).y, to_wstring(_beforeBlock->GetPosition().y), 15);
 _D2DRenderer->RenderText(_position.x, _position.y, to_wstring(_position.y), 15);
 
+--rect 포지션 조정--
+_rect = RectMakePivot(_position, _size, Pivot::Center);	//파란색 블록이 벽에 부딪힐 때 이미지가 좌우로 쏠림 현상 발생
+

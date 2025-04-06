@@ -2,6 +2,7 @@
 #include "GameObject.h"
 #include "Player.h"
 
+
 class Item : public GameObject
 {
 public:
@@ -14,20 +15,6 @@ public:
 	void Render() override;
 
 	Player* _player = nullptr;
-};
-
-class Propeller : public Item
-{
-public:
-	Propeller();
-	virtual ~Propeller();
-
-	void Init() override;
-	void Release() override;
-	void Update() override;
-	void Render() override;
-
-	Image* _propellerImage = nullptr;
 };
 
 class Trampoline : public Item

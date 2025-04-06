@@ -53,9 +53,9 @@ PlatformBlock::~PlatformBlock()
 void PlatformBlock::Init()
 {
 	_name = L"Block";
-	SetRandomCreate(Vector2(rand() % 473 + 20, 900), rand() % 20);
+	SetRandomCreate(Vector2(rand() % 473 + 20, 900), BLOCKTYPEVALUE);
 	_size = Vector2(75, 22);
-	_active = false;
+	_active = true;
 
 	IMAGEMANAGER->AddImage(L"green", L"Resources/block_green.png");
 	IMAGEMANAGER->AddImage(L"blue", L"Resources/block_blue.png");
@@ -79,9 +79,9 @@ void PlatformBlock::Release()
 
 void PlatformBlock::Update()
 {
-	if (_player && !_player->_isDead)
+	if (_player && !_player->_isDead)	//player 존재 여부
 	{
-		_rect = RectMakePivot(_position, _size, Pivot::Center);	//rect와 Image 맞추기
+		//_rect = RectMakePivot(_position, _size, Pivot::Center);	//rect와 Image 맞추기
 
 		#pragma region 블록 타입
 		if (_blockType == BlockType::BROWN) //갈색 블록
@@ -107,7 +107,7 @@ void PlatformBlock::Update()
 				_countTime += TIMEMANAGER->GetElapsedTime();
 
 				if (_countTime < 1.0f)
-					Move(Vector2(0, 10), 10);
+					Move(Vector2(0, 10));
 			}
 		}
 		else if (_blockType == BlockType::BLUE) //파란색 블록
@@ -120,9 +120,9 @@ void PlatformBlock::Update()
 				_isRight = true;
 
 			if (_isRight)
-				Move(Vector2(10, 0), 10);
+				Move(Vector2(100, 0));
 			else
-				Move(Vector2(-10, 0), 10);
+				Move(Vector2(-100, 0));
 		}
 		else //초록색 블록
 			_blockImage = IMAGEMANAGER->FindImage(L"green");
@@ -143,18 +143,19 @@ void PlatformBlock::Update()
 
 void PlatformBlock::Render()
 {
-		if (_blockType == BlockType::BROWN)
-			_blockImage->AniRender(CAMERA->GetRelativeVector2(_position), _blockAnimation, 0.3f);
-		else if (_blockType == BlockType::BLUE)
-			_blockImage->Render(CAMERA->GetRelativeVector2(_position));
-		else
-			_blockImage->Render(CAMERA->GetRelativeVector2(_position));
+	if (_blockType == BlockType::BROWN)
+		_blockImage->AniRender(CAMERA->GetRelativeVector2(_position), _blockAnimation, 0.3f);
+	else if (_blockType == BlockType::BLUE)
+		_blockImage->Render(CAMERA->GetRelativeVector2(_position));
+	else if (_blockType == BlockType::GREEN)
+		_blockImage->Render(CAMERA->GetRelativeVector2(_position));
+
+	_D2DRenderer->FillRectangle(CAMERA->GetRelativeRect(_rect), D2DRenderer::DefaultBrush::White);
 }
 
-void PlatformBlock::Move(Vector2 moveDirection, float speed)
+void PlatformBlock::Move(Vector2 moveDirection)
 {
-	_position += moveDirection * speed * TIMEMANAGER->GetElapsedTime();	// == deltaTime
-	_rect = RectMakePivot(_position, _size, Pivot::Center);	//파란색 블록이 벽에 부딪힐 때 이미지가 좌우로 쏠림 현상 발생
+	_position += moveDirection * TIMEMANAGER->GetElapsedTime();	// == deltaTime
 }
 
 void PlatformBlock::SetRandomCreate(Vector2 randPos, int typeValue)

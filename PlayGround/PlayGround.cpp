@@ -16,7 +16,6 @@ HRESULT PlayGround::Init()
 	SCENEMANAGER->AddScene(L"PauseScene", new PauseScene());
 	SCENEMANAGER->ChangeScene(L"MainScene");
 
-
 	//시작 땅
 	Platform* platform = new Platform();
 	OBJECTMANAGER->AddObject(ObjectType::Platform, platform);

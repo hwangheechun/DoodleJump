@@ -3,7 +3,7 @@
 
 enum class ObjectType : int
 {
-	TileObject, Doodle, Platform, Block, Enemy, Item, Player, UI, End
+	TileObject, Doodle, Platform, Item, Block, Enemy, Player, UI, End
 };	//enum 값이 더 큰 값(더 뒤의 순서의 값)이 위에 그려짐
 
 // 게임 오브젝트 관리 클래스

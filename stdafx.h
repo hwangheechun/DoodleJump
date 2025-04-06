@@ -48,6 +48,9 @@ using namespace UTIL;
 #define WINSIZEY	1024
 #define WINSTYLE	WS_CAPTION | WS_SYSMENU
 
+#define BLOCKTYPEVALUE rand() % 20
+#define BLOCKCOUNT 20
+
 #define RANDOM RandomFunction::GetInstance()
 #define KEYMANAGER KeyManager::GetInstance()
 #define IMAGEMANAGER ImageManager::GetInstance()

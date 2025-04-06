@@ -3,6 +3,8 @@
 #include "PlayGround/UI.h"
 #include "PlayGround/Item.h"
 
+class Player;
+
 class MainScene : public Scene
 {
 public:
@@ -13,12 +15,14 @@ public:
 	void Update() override;
 	void Render() override;
 
-	UI* ui;
+	UI* ui = nullptr;
 	vector<GameObject*> _block;
-	Trampoline* _trampoline;
-	Hole* _hole;
+	Trampoline* _trampoline = nullptr;
+	Hole* _hole = nullptr;
+
+	Player* _player = nullptr;
 private:
-	Image* _bgImage;
+	Image* _bgImage = nullptr;
 };
 
 class AfterDeadScene : public Scene
@@ -31,7 +35,7 @@ public:
 	void Update() override;
 	void Render() override;
 private:
-	Image* _bgImage;
+	Image* _bgImage = nullptr;
 };
 
 class PauseScene : public Scene
@@ -44,5 +48,5 @@ public:
 	void Update() override;
 	void Render() override;
 private:
-	Image* _bgImage;
+	Image* _bgImage = nullptr;
 };

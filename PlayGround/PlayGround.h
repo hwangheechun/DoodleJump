@@ -1,13 +1,11 @@
 ﻿#pragma once
 #include "../GameFramework/GameNode.h"
-#include "Player.h"
 #include "Platform.h"
-#include "Scene.h"
-#include "UI.h"
 #include "Obstacle.h"
-
 #include "EventManager.h"
-#include "UIController.h"	//3 16 추가
+#include "UIController.h"	
+
+class Player;
 
 class PlayGround : public GameNode
 {	
@@ -21,6 +19,6 @@ public:
 	virtual void Render();
 
 private:
-	UIController* _ui = nullptr;	//3 16 추가
+	UIController* _ui = nullptr;	
 };
 

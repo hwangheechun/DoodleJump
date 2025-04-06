@@ -15,7 +15,7 @@ Player::~Player()
 void Player::Init()
 {
 	_name = L"Player";
-	_position = Vector2(WINSIZEX / 2, WINSIZEY - 100);
+	_position = Vector2(WINSIZEX / 2, WINSIZEY - 60);
 	_size = Vector2(60, 60);
 	_rect = RectMakePivot(_position, _size, Pivot::Center);
 	_active = true;
@@ -43,7 +43,7 @@ void Player::Release()
 void Player::Update()
 {
 	_doodlePos = Vector2(_position.x, _position.y + _size.y / 2); //편하게 사용하려고 _doodlePos 만듦
-	_rect = RectMakePivot(_position, _size, Pivot::Center);
+	//_rect = RectMakePivot(_position, _size, Pivot::Center);
 	if(_isLeft)	//좌우 판별
 		_playerImage = IMAGEMANAGER->FindImage(L"doodle_left");
 	else
@@ -53,10 +53,9 @@ void Player::Update()
 
 	_gravity += 2.5f;	//중력 가속
 	if (!_onGround)
-		Move(Vector2(0.0f, _gravity), 10);	//중력 적용
+		Move(Vector2(0.0f, _gravity * 10));	//중력 적용
 	else 
 	{
-		_takenTime = 0;
 		_position.y = _ground->GetPosition().y - _ground->GetSize().y / 2 - _size.y / 2;
 	}
 
@@ -64,7 +63,7 @@ void Player::Update()
 	{
 		if (_position.x > 0)
 		{
-			Move(Vector2(-35, 0), 10);
+			Move(Vector2(-350, 0));
 			_isLeft = true;
 		}
 		else _position.x = WINSIZEX;
@@ -73,7 +72,7 @@ void Player::Update()
 	{
 		if (_position.x < WINSIZEX)
 		{
-			Move(Vector2(35, 0), 10);
+			Move(Vector2(350, 0));
 			_isLeft = false;
 		}
 		else _position.x = 0;
@@ -150,9 +149,9 @@ void Player::Render()
 	_playerImage->AniRender(CAMERA->GetRelativeVector2(_position) - Vector2(0, 10), _playerAnimation, 0.4f);
 }
 
-void Player::Move(Vector2 moveDirection, float speed)
+void Player::Move(Vector2 moveDirection)
 {
-	_position += moveDirection * speed * TIMEMANAGER->GetElapsedTime();	// == deltaTime
+	_position += moveDirection * TIMEMANAGER->GetElapsedTime();	// == deltaTime
 	_rect = RectMakePivot(_position, _size, Pivot::Center);
 }
 

@@ -35,7 +35,7 @@ public:
 	void Update() override;
 	void Render() override;
 
-	void Move(Vector2 moveDirection, float speed);
+	void Move(Vector2 moveDirection);
 
 	//»ý¼º
 	void SetRandomCreate(Vector2 randPos, int typeValue);
